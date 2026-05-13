@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de IMC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <article class="calculator">
+      <header>
+        <h1 class="title">Calculadora de IMC</h1>
+        <p>Calcule seu Índice de Massa Corporal de forma simples e precisa.</p>
+      </header>
+
+      <form id="calculadora-imc" novalidate>
+        <fieldset>
+          <legend class="visually-hidden">Dados para o cálculo do IMC</legend>
+
+          <div class="input-group">
+            <label for="peso">Peso (kg)</label>
+            <input type="number" id="peso" name="peso" step="0.1" min="0" placeholder="Ex: 70" required>
+          </div>
+
+          <div class="input-group">
+            <label for="altura">Altura (m)</label>
+            <input type="number" id="altura" name="altura" step="0.01" min="0" placeholder="Ex: 1,75" required>
+          </div>
+
+          <button type="submit" class="btn-calcular" id="calcular">Calcular IMC</button>
+        </fieldset>
+      </form>
+
+      <section id="resultado-section" aria-live="polite" role="status">
+        <output id="resultado" class="resultado" name="imc-result" for="peso altura">
+          Preencha os campos e clique em calcular.
+        </output>
+      </section>
+    </article>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
