@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a0f, #1a1a2e);
+  font-family: 'Inter', -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+article.calculator {
+  max-width: 440px;
+  width: 100%;
+  background: #16162a;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 0.25rem 0;
+  background: linear-gradient(to right, #f0f0f5, #d4d4e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+header p {
+  text-align: center;
+  color: #8888a0;
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  color: #a0a0b8;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: #252538;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  color: #f0f0f5;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::placeholder {
+  color: #555570;
+}
+
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+.btn-calcular {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+}
+
+.btn-calcular:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99,102,241,0.3);
+}
+
+.btn-calcular:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-calcular:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#resultado-section {
+  margin-top: 1.5rem;
+}
+
+.resultado {
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  text-align: center;
+  display: block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.resultado.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resultado .imc-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  display: block;
+}
+
+.resultado .classificacao {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.abaixo-peso,
+.abaixo-peso .imc-value,
+.abaixo-peso .classificacao {
+  color: #f59e0b;
+}
+
+.abaixo-peso {
+  background: rgba(245,158,11,0.08);
+  border-color: rgba(245,158,11,0.2);
+}
+
+.peso-normal,
+.peso-normal .imc-value,
+.peso-normal .classificacao {
+  color: #22c55e;
+}
+
+.peso-normal {
+  background: rgba(34,197,94,0.08);
+  border-color: rgba(34,197,94,0.2);
+}
+
+.sobrepeso,
+.sobrepeso .imc-value,
+.sobrepeso .classificacao {
+  color: #f97316;
+}
+
+.sobrepeso {
+  background: rgba(249,115,22,0.08);
+  border-color: rgba(249,115,22,0.2);
+}
+
+.obesidade,
+.obesidade .imc-value,
+.obesidade .classificacao {
+  color: #ef4444;
+}
+
+.obesidade {
+  background: rgba(239,68,68,0.08);
+  border-color: rgba(239,68,68,0.2);
+}
+
+.mensagem-erro {
+  color: #f87171;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  article.calculator {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .resultado .imc-value {
+    font-size: 2rem;
+  }
+}
